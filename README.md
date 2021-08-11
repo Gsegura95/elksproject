@@ -2,19 +2,20 @@
 
 The files in this repository were used to configure the network depicted below.
 
-!Diagrams/Untitled Diagram.png
+<img width="1037" alt="Screen Shot 2021-07-12 at 10 25 56 PM" src="https://user-images.githubusercontent.com/87348052/128952468-92d2dd0c-e675-4fa4-a184-02f071530471.png">
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible file may be used to install only certain pieces of it, such as Filebeat.
+
+These are the files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire pictured above. Alternatively, select portions of the ansible file may be used to install only certain pieces of it, such as Filebeat.
 
   -ELK-Stack-Project/Ansible/
   
 This document contains the following details:
-- Description of the Topologu
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+Description of the Topologu
+Access Policies
+ELK Configuration
+Beats in Use
+Machines Being Monitored
+How to Use the Ansible Build
 
 
 ### Description of the Topology
@@ -31,17 +32,18 @@ The configuration details of each machine may be found below.
 
 | Name       | Function   | IP Address                              | Operating System |
 |------------|------------|-----------------------------------------|------------------|
-| Jump-Box   | Gateway    | Public: 40.86.73.173 Private: 10.0.0.8  | Linux            |
-| Web-1      | Server     | Public: N/A          Private: 10.0.0.9  | Linux            |
-| Web-2      | Server     | Public: N/A          Private: 10.0.0.10 | Linux            |
+| JumpBoxPro   | Gateway    | Public: 40.86.73.173 Private: 10.0.0.8  | Linux            |
+| Web1VM      | Server     | Public: N/A          Private: 10.0.0.9  | Linux            |
+| Web2VM      | Server     | Public: N/A          Private: 10.0.0.10 | Linux            |
 | ELK-Server | Monitoring | Public: 52.137.81.98 Private: 10.2.0.4  | Linux            |
 
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
+The machines on the internal network are not shown to the public Internet. 
 
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 5061 Kibana port
+
+5061 Kibana port
 
 Machines within the network can only be accessed by the Jump-Box-Provisioner.
 
@@ -67,8 +69,11 @@ The playbook implements the following tasks:
 - Download and launch a docker elk container - starts docker and establishes the ports being used.  
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+<img width="819" alt="Screen Shot 2021-08-10 at 9 18 05 PM" src="https://user-images.githubusercontent.com/87348052/128955191-578e7de6-39b9-4418-a6e3-7a8be4094539.png">
 
-!ELK-Stack-Project/Diagrams/Screen Shot 2020-12-09 at 4.52.41 PM.png
+
+
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -78,8 +83,8 @@ This ELK server is configured to monitor the following machines:
 | Web-2 | 10.0.0.10   |
 
 I have installed the following Beats on these machines:
-- Filebeat
-- Metricbeat 
+Filebeat
+Metricbeat 
 
 | Name       | IP Address   |
 |------------|--------------|
@@ -95,8 +100,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the playbook (.yml) file to Ansible directory.
-- Update the host file to include webserver and ELK. 
-- Run the playbook, and navigate to Kibana to check that the installation worked as expected. 
+Copy the playbook (.yml) file to /etc/Ansible/ directory.
+Update the host file to include webserver and ELK. 
+Run the playbook, and navigate to Kibana to check that the installation worked as expected. 
    ( http://[your.VM.IP]:5601/app/kibana )
 
